@@ -1,0 +1,20 @@
+.logo-main{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    padding-top: 8px;
+}
+.nav-link{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.sm-color{
+    color:black
+}
+.sm-width{
+    font-weight: 600;
+}
+.active{
+    color: orangered;
+}
