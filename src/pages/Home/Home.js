@@ -1,27 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import './home.css'
-import SimpleImageSlider from "react-simple-image-slider";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import YouTube, { YouTubeProps } from 'react-youtube';
 
 function Home() {
 
-  const images = [
-    { url: "./images/img1.jpg" },
-    { url: "./images/img2.jpg" },
-    { url: "./images/img3.jpg" },
-    { url: "./images/img4.jpg" }
-  ]
+  
 
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const updateDimensions = () => {
-    if(width<720){
-      setHeight(400)
-      setWidth(window.innerWidth-2);
-     }else{
-      setHeight(window.innerHeight);
-      setWidth(window.innerWidth);
-     }
+    setHeight(window.innerHeight);
+    setWidth(window.innerWidth);
 
     
 
@@ -31,26 +22,13 @@ function Home() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  var opts=[]
-  if(width<720){
-    var tempWi=`${width-100}`
-
-     opts = {
-    height: '200',
-    width: tempWi,
+  const opts = {
+    height: '390',
+    width: '620',
     playerVars: {
       autoplay: 1,
     },
   };
-  }else{
-    opts = {
-      height: '390',
-      width: '620',
-      playerVars: {
-        autoplay: 1,
-      },
-    };
-  }
   
  
 
@@ -60,14 +38,23 @@ function Home() {
     <div className='homeComp'>
       <div className='imageSliderWrraper'>
         <div className='ImageSlider'>
-          <SimpleImageSlider
-            width={width}
-            height={height - 150}
-            images={images}
-            showBullets={true}
-            showNavs={true}
-            autoPlay={true}
-          />
+        <Carousel>
+                <div>
+                    <img src="./images/img1.jpg" />
+                    
+                </div>
+                <div>
+                    <img src="./images/img2.jpg" />
+                   
+                </div>
+                <div>
+                    <img src="./images/img3.jpg" />
+
+                </div>
+                <div>
+                    <img src="./images/img4.jpg" />
+                </div>
+            </Carousel>
         </div>
       </div>
       <div className='home-content'>
