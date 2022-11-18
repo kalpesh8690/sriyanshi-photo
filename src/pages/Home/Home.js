@@ -7,14 +7,23 @@ function Home() {
 
   const images = [
     { url: "./images/img1.jpg" },
-    { url: "./images/img2.jpg" }
+    { url: "./images/img2.jpg" },
+    { url: "./images/img3.jpg" },
+    { url: "./images/img4.jpg" }
   ]
 
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const updateDimensions = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
+    if(width<720){
+      setHeight(400)
+      setWidth(window.innerWidth-2);
+     }else{
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth);
+     }
+
+    
 
   }
   useEffect(() => {
@@ -22,13 +31,28 @@ function Home() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  const opts = {
-    height: '390',
-    width: '640',
+  var opts=[]
+  if(width<720){
+    var tempWi=`${width-100}`
+
+     opts = {
+    height: '200',
+    width: tempWi,
     playerVars: {
       autoplay: 1,
     },
   };
+  }else{
+    opts = {
+      height: '390',
+      width: '620',
+      playerVars: {
+        autoplay: 1,
+      },
+    };
+  }
+  
+ 
 
 
 

@@ -44,3 +44,28 @@ color: orangered;
     border: 3px solid red;
     box-shadow: 1px 1px 10px inset red;
 }
+
+@media (max-width:720px) {
+    .welcomeText{
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+    .welcomeText::before{
+       display: flex;
+       content: "";
+       background-color: orangered;
+       width: 100px;
+       height: 2px;
+    }
+    .welcomeText::after{
+        display: flex;
+        content: "";
+        background-color: orangered;
+        width: 100px;
+        height: 2px;
+     }
+    .welcomeText span{
+    color: orangered;
+    }
+}
